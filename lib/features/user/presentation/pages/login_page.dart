@@ -9,7 +9,6 @@ import 'package:event/features/user/presentation/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/route_manager.dart';
 
 import '../../../home/presentation/pages/home_page.dart';
 import '../widgets/error_sucess_pop_up.dart';
@@ -79,7 +78,6 @@ class LoginPage extends StatelessWidget {
                   text: "Dont have account?",
                   buttonText: "Sign Up",
                   onPressed: () {
-                    Get.to(SignUpPage());
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SignUpPage(),
                     ));
