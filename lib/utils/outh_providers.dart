@@ -1,0 +1,4 @@
+enum AuthProvider {
+  google,
+  facebook,
+}
