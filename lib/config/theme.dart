@@ -24,6 +24,9 @@ class AppTheme {
     scaffoldBackgroundColor: ColorConstant.darkBlue,
     elevatedButtonTheme: _elevatedButtonThemeData,
     textButtonTheme: _textButtonThemeData,
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
   );
 
   static final ElevatedButtonThemeData _elevatedButtonThemeData =
