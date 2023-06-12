@@ -1,6 +1,7 @@
 import 'package:event/config/app_style.dart';
 import 'package:event/config/constants.dart';
 import 'package:event/features/user/presentation/cubit/user_cubit.dart';
+import 'package:event/features/user/presentation/pages/forgot_password_page.dart';
 import 'package:event/features/user/presentation/pages/sign_up_page.dart';
 import 'package:event/features/user/presentation/widgets/custom_text_button.dart';
 import 'package:event/features/user/presentation/widgets/custom_text_field.dart';
@@ -74,7 +75,15 @@ class LoginPage extends StatelessWidget {
                         _passwordController.text.trim());
                   }),
               const SizedBox(height: 10),
-              CustomTextButton(onPressed: () {}, text: 'Forgot Password?'),
+              CustomTextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPasswordPage(),
+                      ),
+                    );
+                  },
+                  text: 'Forgot Password?'),
               DontHaveAccount(
                   text: "Dont have account?",
                   buttonText: "Sign Up",
@@ -93,7 +102,14 @@ class LoginPage extends StatelessWidget {
                   BlocProvider.of<UserCubit>(context)
                       .loginWithSocial(provider: 'google');
                 },
-              )
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ));
+                  },
+                  child: const Text('Skip')),
             ],
           );
         },

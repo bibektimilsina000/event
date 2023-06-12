@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   const LoginButton({super.key, required this.text, required this.onPressed});
 
   @override

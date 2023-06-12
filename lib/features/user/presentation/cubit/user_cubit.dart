@@ -7,7 +7,7 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   final client = Client()
       .setEndpoint('http://192.168.18.7:8080/v1')
-      .setProject('64845404cd2bcafb4e35');
+      .setProject('648597e8a399b887f2a6');
 
   UserCubit() : super(UserInitial());
 
@@ -66,4 +66,19 @@ class UserCubit extends Cubit<UserState> {
       emit(const UserLoginError("Opps! something went wrong"));
     }
   }
+
+  void getOtpForPasswordReset(String email) async {
+    emit(UserOtpSendLoading());
+    final account = Account(client);
+    try {
+      await account.createRecovery(email: email, url: 'http://192.168.18.7');
+      emit(UserOtpSendSucess());
+    } on AppwriteException catch (e) {
+      emit(UserOtpSendError(e.message.toString()));
+    } catch (e) {
+      emit(const UserOtpSendError("Opps! something went wrong"));
+    }
+  }
+
+  void logout() {}
 }

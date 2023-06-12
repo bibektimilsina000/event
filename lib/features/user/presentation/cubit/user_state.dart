@@ -26,3 +26,12 @@ class UserLoginError extends UserState {
   final String message;
   const UserLoginError(this.message);
 }
+
+class UserOtpSendSucess extends UserState {}
+
+class UserOtpSendLoading extends UserState {}
+
+class UserOtpSendError extends UserState {
+  final String message;
+  const UserOtpSendError(this.message);
+}
